@@ -1,9 +1,15 @@
+// $("#btn1").click(function () {
+//     $.get('https://my-json-server.typicode.com/zachhall/WIN2020_AjaxPromises/posts', function (argument) {
+//         for (var i = 0; i < argument.length; i++) {
+//             console.log(argument[i]);
+//         }
+//     })
+// })
+
 $("#btn1").click(function () {
-    $.get('https://my-json-server.typicode.com/zachhall/WIN2020_AjaxPromises/posts', function (argument) {
-        for (var i = 0; i < argument.length; i++) {
-            console.log(argument[i]);
-        }
-    })
+$.get('http://jsonplaceholder.typicode.com/posts', function(data){
+	console.log(data);
+});
 })
 
 // $("btn1").on('click', function(){
@@ -37,7 +43,7 @@ $("#btn2").click(function () {
 //  });
 
  $("#btn3").click(function () {
-    $.get("https://my-json-server.typicode.com/zachhall/WIN2020_AjaxPromises/comments?id=12", function(data){
+    $.get("https://my-json-server.typicode.com/zachhall/WIN2020_AjaxPromises/comments?id=14", function(data){
     console.log(data);
  })
 })
@@ -65,7 +71,7 @@ function myFunction() {
 $("#btn7").click(function () {
     $.ajax({
         method: 'PUT',
-        url: 'https://my-json-server.typicode.com/zachhall/WIN2020_AjaxPromises/posts?id=12',
+        url: 'https://my-json-server.typicode.com/zachhall/WIN2020_AjaxPromises/posts/14',
         data: {
             userId: 1,
             title: "New Post",
@@ -73,6 +79,48 @@ $("#btn7").click(function () {
         },
         complete: function(response){
             console.log(response.responseJSON);
+        }
+    })
+})
+
+$("#btn8").click(function () {
+    $.ajax({
+        method: 'PATCH',
+        url: 'https://my-json-server.typicode.com/zachhall/WIN2020_AjaxPromises/posts/14',
+        data: {
+            userId: 1,
+            title: "Supercalifragilisticespialidocious",
+            body: "New post added"
+        },
+        complete: function(response){
+            console.log(response.responseJSON);
+        }
+    })
+})
+
+$("#btn9").click(function () {
+    $.ajax({
+        method: 'DELETE',
+        url: 'https://my-json-server.typicode.com/zachhall/WIN2020_AjaxPromises/posts/14',
+
+        complete: function (response) {
+            console.log(response.statusText);
+        }
+    })
+})
+
+$("#btn10").click(function () {
+    $.get('https://my-json-server.typicode.com/zachhall/WIN2020_AjaxPromises/posts', function (argument) {
+        for (var i = 0; i < argument.length; i++) {
+            console.log(argument[i]);
+        }
+    })
+})
+
+$("#btn11").click(function () {
+    $.get('https://my-json-server.typicode.com/zachhall/WIN2020_AjaxPromises/comments', function (argument) {
+        {
+            console.log(argument);
         }
     })
 })
